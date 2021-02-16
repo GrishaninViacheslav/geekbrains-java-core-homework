@@ -1,6 +1,6 @@
 package GeekBrians.Slava_5655380.Homework.Lesson7.FirstHalf;
 
-import static GeekBrians.Slava_5655380.Util.*;
+import static GeekBrians.Slava_5655380.Utils.*;
 
 // ЗАДАНИЕ 3. Создайте два массива: с участниками и препятствиями,
 // и заставьте всех участников пройти этот набор препятствий.

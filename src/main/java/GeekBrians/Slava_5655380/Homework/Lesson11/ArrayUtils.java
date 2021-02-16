@@ -2,7 +2,7 @@ package GeekBrians.Slava_5655380.Homework.Lesson11;
 
 import java.util.ArrayList;
 
-public class ArrayUtil {
+public class ArrayUtils {
     /**
      * ЗАДАНИЕ 1. Написать метод, который меняет два элемента массива местами (массив может быть любого ссылочного типа);
      */

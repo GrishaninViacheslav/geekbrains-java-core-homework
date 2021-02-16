@@ -2,7 +2,7 @@ package GeekBrians.Slava_5655380;
 
 import java.util.*;
 
-public class Util {
+public class Utils {
     public static int[] strArrToIntArr(String[] sourceArr) {
         int[] returnArr = new int[sourceArr.length];
         for (int i = 0; i < returnArr.length; i++)

@@ -1,6 +1,6 @@
 package GeekBrians.Slava_5655380.Homework.Lesson2;
 
-import static GeekBrians.Slava_5655380.Util.*;
+import static GeekBrians.Slava_5655380.Utils.*;
 
 public class Lesson_2 {
 
