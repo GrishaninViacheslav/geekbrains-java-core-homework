@@ -1,6 +1,6 @@
 package GeekBrians.Slava_5655380;
 
-import java.util.Random;
+import java.util.*;
 
 public class Util {
     public static int[] strArrToIntArr(String[] sourceArr) {
@@ -125,6 +125,66 @@ public class Util {
     public static String getClassShortName(Object obj) {
         String[] classFullName = obj.getClass().toString().split("\\.");
         return classFullName[classFullName.length - 1];
+    }
+
+    // https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9A%D1%8D%D1%85%D1%8D%D0%BD%D0%B0
+    public static double kahanSum(Double... toSum){
+        Arrays.sort(toSum, new Comparator<Double>() {
+            @Override
+            public int compare(Double o1, Double o2) {
+                double absDiff = (absDouble(o2) - absDouble(o1));
+                if(absDiff < 0.0)
+                    return -1;
+                else if(absDiff > 0.0)
+                    return 1;
+                else
+                    return 0;
+            }
+        });
+        double sum = toSum[0];
+        double c = 0.0;
+        for(int i = 1; i < toSum.length; i++){
+            double y = toSum[i] - c;
+            double t = sum + y;
+            c = (t - sum) - y;
+            sum = t;
+        }
+        return sum;
+    }
+
+    public static double absDouble(double num){
+        return (num < 0.0) ? -num : num;
+    }
+
+    public static <T extends Collection, E> E[] toArray(T coll){
+        Iterator<E> iter =  coll.iterator();
+        E[] arr = (E[])(new Object[coll.size()]);
+       for(int i = 0; i < arr.length; i++)
+           arr[i] = iter.next();
+        return arr;
+    }
+
+    public static int[] range(int n) {
+        int[] result = new int[n];
+        for(int i = 0; i < n; i++)
+            result[i] = i;
+        return result;
+    }
+
+    public static int[] range(int start, int end) {
+        int sz = end - start;
+        int[] result = new int[sz];
+        for(int i = 0; i < sz; i++)
+            result[i] = start + i;
+        return result;
+    }
+
+    public static int[] range(int start, int end, int step) {
+        int sz = (end - start)/step;
+        int[] result = new int[sz];
+        for(int i = 0; i < sz; i++)
+            result[i] = start + (i * step);
+        return result;
     }
 }
 
