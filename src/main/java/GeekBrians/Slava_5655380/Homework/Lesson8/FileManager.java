@@ -1,6 +1,6 @@
 package GeekBrians.Slava_5655380.Homework.Lesson8;
 
-import static GeekBrians.Slava_5655380.Util.*;
+import static GeekBrians.Slava_5655380.Utils.*;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -96,8 +96,11 @@ public class FileManager {
                 wordMatchIndex++;
                 if (wordMatchIndex == wordChars.length)
                     return new Vector3i(symbIndex - wordChars.length + 1, lineIndex + 1, i - wordChars.length + 2);
-            } else
+            } else {
                 wordMatchIndex = 0;
+                if (textChars[i] == wordChars[wordMatchIndex])
+                    wordMatchIndex++;
+            }
         }
         return new Vector3i(-1, -1, -1);
     }

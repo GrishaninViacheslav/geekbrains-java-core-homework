@@ -1,6 +1,6 @@
 package GeekBrians.Slava_5655380.Homework.Lesson3;
 
-import static GeekBrians.Slava_5655380.Util.*;
+import static GeekBrians.Slava_5655380.Utils.*;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -79,20 +79,7 @@ class GomokuGame {
 
     // ЗАДАНИЕ 4. *** Доработать искусственный интеллект, чтобы он мог блокировать ходы игрока, и пытаться выиграть сам.
     private void aiTurn() {
-        // Пробует заблокировать выигрышный ход игрока
-        for (int i = 0; i < SIZE; i++)
-            for (int j = 0; j < SIZE; j++) {
-                if (map[i][j] == DOT_EMPTY) {
-                    map[i][j] = (isUserFirst) ? DOT_X : DOT_O;
-                    if (checkWin((isUserFirst) ? DOT_X : DOT_O, j, i)) {
-                        System.out.println("Программа сделала ход в точку " + (j + 1) + " " + (i + 1));
-                        makeTurn((isUserFirst) ? DOT_O : DOT_X, j, i);
-                        return;
-                    }
-                    map[i][j] = DOT_EMPTY;
-                }
-            }
-        // Иначе пробует найти выигрышный ход
+        // Пробует найти выигрышный ход
         for (int i = 0; i < SIZE; i++)
             for (int j = 0; j < SIZE; j++) {
                 if (map[i][j] == DOT_EMPTY) {
@@ -105,6 +92,21 @@ class GomokuGame {
                     map[i][j] = DOT_EMPTY;
                 }
             }
+
+        // Иначе пробует заблокировать выигрышный ход игрока
+        for (int i = 0; i < SIZE; i++)
+            for (int j = 0; j < SIZE; j++) {
+                if (map[i][j] == DOT_EMPTY) {
+                    map[i][j] = (isUserFirst) ? DOT_X : DOT_O;
+                    if (checkWin((isUserFirst) ? DOT_X : DOT_O, j, i)) {
+                        System.out.println("Программа сделала ход в точку " + (j + 1) + " " + (i + 1));
+                        makeTurn((isUserFirst) ? DOT_O : DOT_X, j, i);
+                        return;
+                    }
+                    map[i][j] = DOT_EMPTY;
+                }
+            }
+
         // Иначе делает случайный ход
         int column, row;
         do {

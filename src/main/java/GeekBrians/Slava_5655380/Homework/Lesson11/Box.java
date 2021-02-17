@@ -1,6 +1,6 @@
 package GeekBrians.Slava_5655380.Homework.Lesson11;
 
-import static GeekBrians.Slava_5655380.Util.*;
+import static GeekBrians.Slava_5655380.Utils.*;
 
 import java.util.ArrayList;
 
