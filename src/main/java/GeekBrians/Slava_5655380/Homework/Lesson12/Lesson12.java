@@ -23,20 +23,20 @@ public class Lesson12 {
     }
 
     public static void singleThreadMethod(float[] arr) {
-        modify(arr);
+        modify(arr, 0);
     }
 
     public static void multiThreadMethod(float[] arr) throws InterruptedException {
         Thread firstThread = new Thread(() -> {
             float[] firstHalf = new float[HALF];
             System.arraycopy(arr, 0, firstHalf, 0, HALF);
-            modify(firstHalf);
+            modify(firstHalf, 0);
             System.arraycopy(firstHalf, 0, arr, 0, HALF);
         });
         Thread secondThread = new Thread(() -> {
             float[] secondHalf = new float[HALF];
             System.arraycopy(arr, HALF, secondHalf, 0, HALF);
-            modify(secondHalf);
+            modify(secondHalf, HALF);
             System.arraycopy(secondHalf, 0, arr, HALF, HALF);
         });
         firstThread.start();
@@ -45,8 +45,8 @@ public class Lesson12 {
         secondThread.join();
     }
 
-    public static void modify(float[] arr) {
+    public static void modify(float[] arr, int shift) {
         for (var i : range(arr.length))
-            arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+            arr[i] = (float) (arr[i] * Math.sin(0.2f + (shift+i) / 5) * Math.cos(0.2f + (shift+i) / 5) * Math.cos(0.4f + (shift+i) / 2));
     }
 }

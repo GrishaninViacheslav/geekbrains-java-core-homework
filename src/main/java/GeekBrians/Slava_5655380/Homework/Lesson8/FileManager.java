@@ -39,10 +39,10 @@ public class FileManager {
 
     private static void task4() throws IOException {
         System.out.println("\nЗАДАНИЕ 4");
-        String word = "laboris";
+        String word = "Man_A3";
         StringBuilder matchFilePathBuff = new StringBuilder();
         // ЗАДАНИЕ 4.** Написать метод, проверяющий, есть ли указанное слово в папке
-        Vector3i wordIndex = findWord(new File("src/main/java/GeekBrians/Slava_5655380/Homework/Lesson8/filesForTesting"), word, matchFilePathBuff);
+        Vector3i wordIndex = findWord(new File("P:\\samples_f"), word, matchFilePathBuff);
         if (wordIndex.x == -1) {
             System.out.println("Слово \"" + word + "\" отсутстует в src/main/java/GeekBrians/Slava_5655380/Homework/Lesson8/filesForTesting");
             return;
